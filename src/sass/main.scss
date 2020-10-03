@@ -1,5 +1,12 @@
-
+@import "./../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;565;700&display=swap");
 @import 'mixins';
+
+$color-pink: #ef2d56;
+$color-black: #363537;
+$color-orange: #efd6ac;
+$color-white: #e8e9ed;
+$color-grey: #99a1a6;
 
 * {
   margin: 0;
@@ -36,10 +43,181 @@ html {
 body {
   box-sizing: border-box;
   position: relative;
+  background-color: $color-orange;
+  font-family: "Spartan", sans-serif;
+  font-size: 1.2rem;
 }
 
 .wrapper {
   position: absolute;
   width: 100vw;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
+
+.heading {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  &__logo {
+    height: calc(100% - 4rem);
+  }
+  &__title {
+    font-size: 3.5rem;
+  }
+}
+
+.music {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-container {
+  height: 45rem;
+  width: 35rem;
+  margin-bottom: -6rem;
+  background-color: $color-white;
+  border-radius: 2rem;
+  box-shadow: 0 1.5rem 3rem 0.5rem rgba($color: #000000, $alpha: 0.3);
+
+  @include respond(tab-prot) {
+    //700px to 900px max-width(59.375em)
+    height: 43rem;
+    width: 33rem;
+  }
+  @include respond(phone-prot) {
+    //0px to 400px max-width(28.125em)
+    height: 40rem;
+    width: 30rem;
+  }
+}
+
+.img-container {
+  position: relative;
+  height: 25rem;
+  width: 25rem;
+
+  @include respond(tab-prot) {
+    //700px to 900px max-width(59.375em)
+    height: 23rem;
+    width: 23rem;
+  }
+  @include respond(phone-prot) {
+    //0px to 400px max-width(28.125em)
+    height: 20rem;
+    width: 20rem;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 3rem 0.5rem rgba($color: #000000, $alpha: 0.5);
+  }
+}
+
+.img-adjust {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -4rem;
+  left: calc((35rem - 25rem) / 2);
+  @include respond(tab-prot) {
+    //700px to 900px max-width(59.375em)
+    left: calc((33rem - 23rem) / 2);
+  }
+  @include respond(phone-prot) {
+    //0px to 400px max-width(28.125em)
+    left: calc((30rem - 20rem) / 2);
+  }
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 565;
+  text-align: center;
+  @include respond(phone-land) {
+    //400px to 700px max-width(43.75em)
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 400;
+  margin: 5px 0 0;
+
+  @include respond(phone-prot) {
+    //0px to 400px max-width(28.125em)
+    font-size: 1.5rem;
+  }
+}
+
+/* progress*/
+.progress-container {
+  background-color: $color-orange;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 4rem 2rem;
+  height: 4px;
+  width: 90%;
+}
+
+.progress {
+  background: $color-pink;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.duration-wrapper {
+  position: relative;
+  top: -2.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+/* Controls */
+.player-controls {
+  width: 100%;
+  margin: -1.5rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.player-adjust {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fas {
+  font-size: 2.5rem;
+  color: $color-grey;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.main-button {
+  font-size: 3.5rem;
+  color: $color-pink;
+  margin-right: -5px;
+}
+
